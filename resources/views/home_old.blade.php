@@ -1,10 +1,4 @@
-@extends('layouts.backend')
-
-@section('title_header', 'Dashboard')                       {{-- Título do cabeçalho --}}
-@section('pageTitle', 'Dashboard')                          {{-- Título da content da página atual --}}
-@section('subTitlePage', 'Welcome Administrator Amaral')    {{-- Subtítulo/texto ta página atual --}}
-@section('pageBgImage', 'assets/img/photos/photo3@2x.jpg')  {{-- Imagen do fundo do título da página atual --}}
-
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
