@@ -15,13 +15,11 @@ class FormGroupServiceProvider extends ServiceProvider
     public function boot()
     {
         // Group Components
-        Form::component('textGroup'      ,'components.text'      , ['col','name', 'value' => null, 'attributes' => [], 'label', 'errors']);
-        Form::component('emailGroup'     ,'components.email'     , ['col','name', 'value' => null, 'attributes' => [], 'label', 'errors']);
-        Form::component('dateGroup'      ,'components.datepiker' , ['col','name', 'value' => null, 'label', 'errors']);
-        Form::component('selectGroup'    ,'components.select'    , ['col','name', 'optionValue'  , 'value' => null, 'attributes' => [], 'label', 'errors']);
-        Form::component('mSelectGroup'   ,'components.mSelect'   , ['col','name', 'optionValue'  , 'value' => null, 'attributes' => [], 'label', 'errors']);
-        Form::component('textAreaGroup'  ,'components.textArea'  , ['col','name', 'value' => null, 'attributes' => [], 'label', 'errors']);
-        Form::component('textEditorGroup','components.textEditor', ['col','name', 'value' => null, 'attributes' => [], 'label', 'errors']);
+        Form::component('textGroup'      ,'components.formGroup.text', ['label', 'type', 'name', 'value' => null, 'attributes' => [], 'errors']);
+
+        // Form Components
+        Form::component('textForm'      ,'components.form.text'      , ['col', 'label', 'type', 'name', 'value' => null, 'attributes' => [], 'errors']);
+        
         // Buttons
     }
 

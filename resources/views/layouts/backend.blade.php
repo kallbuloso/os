@@ -29,18 +29,10 @@
                     <h2 class="h5 text-white-op animated zoomInDown">@yield('subTitlePage', 'Administrator')</h2>
                 </div>
             </div>
-
             <!-- END Page Header -->
 
-            <!-- Page Content -->
-            <div class="content content-narrow">
-                <!-- My Block -->
-                <div class="block">                    
-                    @yield('content')
-                </div>
-                <!-- END My Block -->
-            </div>
-            <!-- END Page Content -->
+            @yield('content')
+            
         </main>
         <!-- END Main Container -->
 
