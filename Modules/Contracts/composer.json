@@ -1,0 +1,25 @@
+{
+    "name": "kallbuloso/contracts",
+    "description": "",
+    "authors": [
+        {
+            "name": "Amaral karl",
+            "email": "kallbuloso@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Contracts\\Providers\\ContractsServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Contracts\\": ""
+        }
+    }
+}

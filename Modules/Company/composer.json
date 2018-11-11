@@ -1,0 +1,25 @@
+{
+    "name": "kallbuloso/company",
+    "description": "",
+    "authors": [
+        {
+            "name": "Amaral karl",
+            "email": "kallbuloso@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Company\\Providers\\CompanyServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Company\\": ""
+        }
+    }
+}

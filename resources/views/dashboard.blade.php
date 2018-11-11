@@ -2,9 +2,12 @@
 
 @section('title_header', 'Dashboard')                       {{-- Título do cabeçalho --}}
 @section('pageTitle', 'Dashboard')                          {{-- Título da content da página atual --}}
-@section('subTitlePage', 'Bem vindo '. Auth::user()->name)    {{-- Subtítulo/texto ta página atual --}}
+@section('subTitlePage', 'Bem vindo devolta '. Auth::user()->name)    {{-- Subtítulo/texto ta página atual --}}
 @section('pageBgImage', 'assets/img/photos/photo3@2x.jpg')  {{-- Imagen do fundo do título da página atual --}}
 
+@push('stylesheet')
+
+@endpush
 
 @section('content')
                 <!-- Stats -->
@@ -37,7 +40,7 @@
                 <!-- Page Content -->
                 <div class="content">
                     <div class="row">
-                        <div class="col-lg-8">
+                        <div class="col-lg-12">
                             <!-- Bootstrap Register -->
                             <div class="block block-themed">
                                 <div class="block-header bg-primary">
@@ -57,13 +60,10 @@
 
                                         <div class="form-group">
                                             {{ Form::textForm('4', 'Título do Post 2' , 'email','firstname', null, ['placeholder' => 'Título do post'], $errors) }}
-                                            {{--  {{ Form::textForm('4', 'title', null, ['placeholder' => 'Título do post'], 'Título do Post 2' , $errors) }}
-                                            {{ Form::textForm('4', 'title', null, ['placeholder' => 'Título do post'], 'Título do Post 2' , $errors) }}  --}}
+                                            {{ Form::textForm('4', 'Título do Post 2' , 'email','firstname', null, ['placeholder' => 'Título do post'], $errors) }}
+                                            {{ Form::textForm('4', 'Título do Post 2' , 'email','firstname', null, ['placeholder' => 'Título do post'], $errors) }}
                                         </div>
 
-                                        {{--  <div class="form-group">
-
-                                        </div>  --}}
                                         <div class="form-group">
                                             <label class="col-xs-12" for="register1-password">Password</label>
                                             <div class="col-xs-12">
@@ -83,22 +83,7 @@
 
 @endsection
 
-{{-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+@push('scripts')
 
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
+@endpush

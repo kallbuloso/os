@@ -9,27 +9,27 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a data-toggle="theme" data-theme="assets/css/themes/amethyst.min.css" tabindex="-1" href="javascript:void(0)">
-                                        <i class="fa fa-circle text-amethyst pull-right"></i> <span class="font-w600">Amethyst</span>
+                                    <a data-toggle="theme" data-theme="{{ asset('assets/css/themes/amethyst.min.css') }}" tabindex="-1" href="javascript:void(0)">
+                                        <i class="fa fa-circle text-amethyst pull-right"></i> <span class="font-w600">Ametista</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a data-toggle="theme" data-theme="assets/css/themes/city.min.css" tabindex="-1" href="javascript:void(0)">
-                                        <i class="fa fa-circle text-city pull-right"></i> <span class="font-w600">City</span>
+                                    <a data-toggle="theme" data-theme="{{ asset('assets/css/themes/city.min.css') }}" tabindex="-1" href="javascript:void(0)">
+                                        <i class="fa fa-circle text-city pull-right"></i> <span class="font-w600">Citdade</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a data-toggle="theme" data-theme="assets/css/themes/flat.min.css" tabindex="-1" href="javascript:void(0)">
+                                    <a data-toggle="theme" data-theme="{{ asset('assets/css/themes/flat.min.css') }}" tabindex="-1" href="javascript:void(0)">
                                         <i class="fa fa-circle text-flat pull-right"></i> <span class="font-w600">Flat</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a data-toggle="theme" data-theme="assets/css/themes/modern.min.css" tabindex="-1" href="javascript:void(0)">
-                                        <i class="fa fa-circle text-modern pull-right"></i> <span class="font-w600">Modern</span>
+                                    <a data-toggle="theme" data-theme="{{ asset('assets/css/themes/modern.min.css') }}" tabindex="-1" href="javascript:void(0)">
+                                        <i class="fa fa-circle text-modern pull-right"></i> <span class="font-w600">Moderno</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a data-toggle="theme" data-theme="assets/css/themes/smooth.min.css" tabindex="-1" href="javascript:void(0)">
+                                    <a data-toggle="theme" data-theme="{{ asset('assets/css/themes/smooth.min.css') }}" tabindex="-1" href="javascript:void(0)">
                                         <i class="fa fa-circle text-smooth pull-right"></i> <span class="font-w600">Smooth</span>
                                     </a>
                                 </li>

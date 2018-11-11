@@ -5,4 +5,9 @@
     <small class="text-danger">{{ $errors->first($name) }}</small>
 </div>
 {{--  Usage  --}}
-{{-- {{ Form::textGroup('Título do Post *' , 'text', 'email', null, ['placeholder' => 'Título do post'], $errors) --}}
+{{-- 
+<div class="form-group">
+    {{ Form::textGroup('4', 'Título do Post *' , 'text', 'email', null, ['placeholder' => 'Título do post'], $errors)
+    {{ Form::textGroup('4', 'Título do Post *' , 'text', 'email', null, ['placeholder' => 'Título do post'], $errors)
+</div>
+    --}}
