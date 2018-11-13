@@ -18,8 +18,8 @@ class UserTableSeeder extends Seeder
         //DB::statement('SET FOREIGN_KEY_CHECKS=0');
         DB::table('users')->truncate();
         $user = new \App\Models\User();
-        $date = Carbon::create(2018, 10, 30, 9);
-        $faker =  Faker::create(app()->getLocale());
+        $date = Carbon::create(2018, 11, 10, 9);
+        $faker =  Faker::create('pt_BR');
         
         $user->create([
             'name'      => 'admin',

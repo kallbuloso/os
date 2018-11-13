@@ -28,18 +28,9 @@
                             <li>
                                 <a class="{{ request()->is('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}"><i class="si si-speedometer"></i><span class="sidebar-mini-hide">Dashboard</span></a>
                             </li>
-                            <li class="nav-main-heading"><span class="sidebar-mini-hide">Header</span></li>
-                            <li class="{{ request()->is('dashboard') ? 'open' : '' }}">
-                                <a class="nav-submenu " data-toggle="nav-submenu" href="#"><i class="si si-wrench"></i><span class="sidebar-mini-hide">Dropdown</span></a>
-                                <ul>
-                                    <li>
-                                        <a class="{{ request()->is('dashboard') ? 'active' : '' }}" href="start_backend.html">Link 1</a>
-                                    </li>
-                                    <li>
-                                        <a class="{{ request()->is('dashboard') ? 'active' : '' }}" href="http://www.os.elyder.desv">Link 2</a>
-                                    </li>
-                                </ul>
-                            </li>
+                            <li class="nav-main-heading"><span class="sidebar-mini-hide">Ordens de Serviços</span></li>
+                            <li class="nav-main-heading"><span class="sidebar-mini-hide">Cadastros</span></li>
+                            @include('customers::layouts.menu')
                         </ul>
                     </div>
                     <!-- END Side Content -->

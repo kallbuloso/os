@@ -12,5 +12,5 @@
 */
 
 Route::prefix('customers')->group(function() {
-    Route::get('/', 'CustomersController@index');
+    Route::get('/', 'CustomersController@index')->name('customers');
 });

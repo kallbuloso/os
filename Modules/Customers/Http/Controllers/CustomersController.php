@@ -5,6 +5,9 @@ namespace Modules\Customers\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Customers\Models\Customers;
+use Modules\Customers\Models\CustomersAddress;
+use Carbon\Carbon;
 
 class CustomersController extends Controller
 {
@@ -14,7 +17,50 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        return view('customers::index');
+
+        $customers = Customers::All();
+        // Count all
+        $custFindCount = Customers::All()->count();
+        // Status
+        $custFindBlock = Customers::where('status', 0)->count();
+        $custFindActive = Customers::where('status', 1)->count();
+        $custFindInactive = Customers::where('status', 2)->count();
+        $custFindAtent = Customers::where('status', 3)->count();
+        // Tipe
+        $custFindFis = Customers::where('tipe', 0)->count();
+        $custFindJur = Customers::where('tipe', 1)->count();
+        // Tipe
+        $custFindMas = Customers::where('gender', 0)->count();
+        $custFindFem = Customers::where('gender', 1)->count();
+        $custFindOrd = Customers::where('gender', 2)->count();
+        // dates
+        $date = new Carbon;
+        // pegar cadastros di dia
+        $custFindDay = Customers::where('created_at',  '>', $date->toDay()->toDateTimeString())->count();
+        // pegar cadastros da semana
+        $custFindWeek = Customers::where('created_at', '>', $date->subWeek()->toDateTimeString())->count();
+        // pegar cadastros do ano
+        $custFindYear = Customers::whereYear('created_at', '=', $date->format('Y'))->count();
+            // ->latestFirst()
+            // ->published()
+            // ->paginate($this->limit);
+        return view('customers::index', compact(
+            'customers', 
+            'custFindCount', 
+            'custFindBlock', 
+            'custFindActive', 
+            'custFindInactive', 
+            'custFindAtent',
+            'custFindFis',
+            'custFindJur',
+            'custFindMas',
+            'custFindFem',
+            'custFindOrd',
+            'custFindDay',
+            'custFindWeek',
+            'custFindYear',
+            'dt'
+        ));
     }
 
     /**
