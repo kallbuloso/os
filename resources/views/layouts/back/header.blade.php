@@ -5,7 +5,7 @@
                 <li>
                     <div class="btn-group">
                         <button class="btn btn-default btn-image dropdown-toggle" data-toggle="dropdown" type="button">
-                            <img src="assets/img/avatars/avatar10.jpg" alt="Avatar">
+                            <img src="/assets/img/avatars/avatar10.jpg" alt="Avatar">
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right">
@@ -17,7 +17,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a tabindex="-1" href="base_pages_profile.html">
+                                <a tabindex="-1" href="javascript:void(0)">
                                     <i class="si si-user pull-right"></i>
                                     <span class="badge badge-success pull-right">1</span>Profile
                                 </a>
@@ -30,12 +30,12 @@
                             <li class="divider"></li>
                             <li class="dropdown-header">Actions</li>
                             <li>
-                                <a tabindex="-1" href="base_pages_lock.html">
+                                <a tabindex="-1" href="javascript:void(0)">
                                     <i class="si si-lock pull-right"></i>Lock Account
                                 </a>
                             </li>
                             <li>
-                                <a tabindex="-1" href="base_pages_login.html">
+                                <a tabindex="-1" href="javascript:void(0)">
                                     <i class="si si-logout pull-right"></i>Log out
                                 </a>
                             </li>
