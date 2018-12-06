@@ -15,10 +15,10 @@ class FormGroupServiceProvider extends ServiceProvider
     public function boot()
     {
         // Group Components
-        Form::component('textGroup'      ,'components.formGroup.text', ['label', 'type', 'name', 'value' => null, 'attributes' => [], 'errors']);
+        Form::component('textGroup','components.formGroup.text', ['col', 'label', 'name', 'value' => null, 'attributes' => [], 'errors']);
 
         // Form Components
-        Form::component('textForm'      ,'components.form.text'      , ['col', 'label', 'type', 'name', 'value' => null, 'attributes' => [], 'errors']);
+        Form::component('textForm','components.form.text', ['col', 'label', 'name', 'value' => null, 'attributes' => [], 'errors']);
         
         // Buttons
     }

@@ -151,11 +151,13 @@ return [
          * Package Service Providers...
          */
         Collective\Html\HtmlServiceProvider::class,
+        
+                /*
+                 * Application Service Providers...
+                 */
         App\Providers\FormGroupServiceProvider::class,
-
-        /*
-         * Application Service Providers...
-         */
+        App\Providers\BladeServiceProvider::class,
+        App\Providers\Blade\BladeServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
