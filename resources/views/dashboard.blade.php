@@ -57,13 +57,13 @@
                                 <div class="block-content">
                                     <form class="form-horizontal push-5-t" action="base_forms_premade.html" method="post" onsubmit="return false;">
                                         <div class="form-group">
-                                            {{ Form::textGroup('12', 'Título do Post *' , 'email', null, ['placeholder' => 'Título do post'], $errors) }}
+                                            {{--  {{ Form::textGroup('12', 'Título do Post *' , 'email', null, ['placeholder' => 'Título do post'], $errors) }}  --}}
                                         </div>
 
                                         <div class="form-group">
+                                            {{--  {{ Form::textGroup('4', 'Título do Post 2' , 'firstname', null, ['placeholder' => 'Título do post'], $errors) }}
                                             {{ Form::textGroup('4', 'Título do Post 2' , 'firstname', null, ['placeholder' => 'Título do post'], $errors) }}
-                                            {{ Form::textGroup('4', 'Título do Post 2' , 'firstname', null, ['placeholder' => 'Título do post'], $errors) }}
-                                            {{ Form::textGroup('4', 'Título do Post 2' , 'firstname', null, ['placeholder' => 'Título do post'], $errors) }}
+                                            {{ Form::textGroup('4', 'Título do Post 2' , 'firstname', null, ['placeholder' => 'Título do post'], $errors) }}  --}}
                                         </div>
 
                                         <div class="form-group">
