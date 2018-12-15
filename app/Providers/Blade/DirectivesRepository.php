@@ -74,8 +74,8 @@ class DirectivesRepository
      * @param  string $expression
      * @return string
      */
-    // public static function BladeFormGroup($expression)
-    // {        
-    //     return Form::component($expression,'components.formGroup.'.$expression, ['label', 'type', 'name', 'value' => null, 'attributes' => [], 'errors']);
-    // }
+    public static function BladeTruncate($expression)
+    {
+        return Form::component($expression,'components.formGroup.'.$expression, ['label', 'type', 'name', 'value' => null, 'attributes' => [], 'errors']);
+    }
 }

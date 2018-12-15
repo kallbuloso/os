@@ -69,7 +69,10 @@ class CustomersController extends Controller
      */
     public function create()
     {
-        return view('customers::create');
+        $cats = ['0' => 'Física', '1' => 'Jurídica'];
+        $gender = ['0' => 'Masculino', '1' => 'Feminino', '2' => 'Outros'];
+        $trunc = 'Os sistemas, de gerenciamento para as assistências técnicas disponíveis no mercado têm  o formato bem genérico (foi criado por alguém que não entende da área). Nosso propósito é tornar a plataforma mais objetiva às nossas necessidades. Também consentrar';
+        return view('customers::create', compact('cats', 'trunc', 'gender'));
     }
 
     /**

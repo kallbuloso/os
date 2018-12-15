@@ -14,14 +14,7 @@ class BladeServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // comandos php
-        Blade::directive('truncate',function($expression)
-        {   // https://zaengle.com/blog/exploring-laravels-custom-blade-directives
-            // blade =>Usage @truncate($list->title, 20)
-            list($string, $length) = explode(',',str_replace(['(',')'], ' ', $expression));
-            // list($string, $length) = explode(',', $expression);
-            return "<?php echo e(strlen({$string}) > {$length} ? substr({$string},0,{$length}).'...' : {$string}); ?>";
-        });
+
 
         Blade::directive('hello', function ($expression) {
             list($greet, $name, $test) = explode(',', $expression);

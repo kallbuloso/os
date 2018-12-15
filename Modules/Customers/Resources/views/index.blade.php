@@ -131,7 +131,7 @@
                                     <table class="table table-condensed">
                                         <thead>
                                             <tr>
-                                                <th class="text-center" style="width: 50px;">Id</th>
+                                                {{-- <th class="text-center" style="width: 50px;">Id</th> --}}
                                                 <th>Nome</th>
                                                 <th class="hidden-xs" style="width: 15%;">Pessoa</th>
                                                 <th class="hidden-xs" style="width: 15%;">Status</th>
@@ -141,7 +141,7 @@
                                         <tbody>
                                         @foreach ($customers as $customer)
                                             <tr>
-                                                <td class="text-center">{{ $customer->id }}</td>
+                                                {{-- <td class="text-center">{{ $customer->id }}</td> --}}
                                                 <td>{{ $customer->name }}</td>
                                                 <td>
                                                     @switch($customer->tipe)

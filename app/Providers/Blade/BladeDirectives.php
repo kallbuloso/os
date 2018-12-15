@@ -3,8 +3,22 @@
 use App\Providers\Blade\DirectivesRepository;
 use App\Providers\FormGroupServiceProvider;
 use Illuminate\Support\ServiceProvider;
+use Psy\Util\Str;
 
 return [
+
+    /*
+    |---------------------------------------------------------------------
+    | @truncate
+    |---------------------------------------------------------------------
+    */
+    'truncate' => function ($expression) {
+        list($string, $length) = explode(',',str_replace(['(',')',' '], '', $expression));
+
+        $trunc = "<?php echo e(strlen({$string}) > {$length} ? substr({$string},0,{$length}).'...' : {$string}); ?>";
+        return $trunc;
+    },
+
 
     /*
     |---------------------------------------------------------------------
@@ -357,43 +371,70 @@ return [
 
     /*
     |-----------------------------------------------------------------------
-    | Text
-    | @text('12', 'Novo text', 'title', , ['placeholder' => 'Seu text'])
+    | FormOpen
+    | @formopen([Attributes])
     |-----------------------------------------------------------------------
     */
-    'text' => function ($expression)
+    'formopen' => function ($expression)
     {
-        $expression = DirectivesRepository::parseMultipleArgs($expression);
-        
-        $col = DirectivesRepository::stripQuotes($expression->get(0));
-        $label = DirectivesRepository::stripQuotes($expression->get(1));
-        $name = DirectivesRepository::stripQuotes($expression->get(2));
-        $value = DirectivesRepository::stripQuotes($expression->get(3));
-        $attributes = $expression->get(4);
-        $errors = '$errors';
-
-        return "<?php echo Form::inputGroup('text', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>"; 
+        return '{!! Form::open(['.$expression.']) !!}';
     },
 
     /*
     |-----------------------------------------------------------------------
-    | Textarea
-    | @textarea('12', 'Novo textarea', 'title', , ['placeholder' => 'Seu textarea'])
-    | Evita do usuário fazer merda
+    | FormClose
+    | @formopen([Attributes])
     |-----------------------------------------------------------------------
     */
+    'formclose' => function ()
+    {
+        return '{!! Form::close() !!}';
+    },
+
+    /** k.select
+     * @select([
+     *  'col' => '',
+     *  'label' => '',
+     *  'name' => '',
+     *  'arrayOptions' => [],
+     *  'value' => '',
+     *  'attributes' => []
+     * ])
+     */
+    'select' => function ($expression)
+    {
+        $errors = '$errors';
+        return "{!! Form::selectGroup('select', {$expression}, {$errors}) !!}";
+    },
+
+    /** k.text
+     * @text([
+     *  'col' => '',
+     *  'label' => '',
+     *  'name' => '',
+     *  'value' => '',
+     *  'attributes' => []
+     * ])
+     */
+    'text' => function ($expression)
+    {
+        $errors = '$errors';
+        return "{!! Form::inputGroup('text', {$expression}, {$errors}) !!}";
+    },
+
+    /** k.textArea
+     * @textarea([
+     *  'col' => '',
+     *  'label' => '',
+     *  'name' => '',
+     *  'value' => '',
+     *  'attributes' => []
+     * ])
+     */
     'textarea' => function ($expression)
     {
-        $expression = DirectivesRepository::parseMultipleArgs($expression);
-        
-        $col = DirectivesRepository::stripQuotes($expression->get(0));
-        $label = DirectivesRepository::stripQuotes($expression->get(1));
-        $name = DirectivesRepository::stripQuotes($expression->get(2));
-        $value = DirectivesRepository::stripQuotes($expression->get(3));
-        $attributes = $expression->get(4);
         $errors = '$errors';
-
-        return "<?php echo Form::inputGroup('textarea', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>"; 
+        return "{!! Form::inputGroup('textarea', {$expression}, {$errors}) !!}";
     },
 
     /*
@@ -404,16 +445,8 @@ return [
     */
     'email' => function ($expression)
     {
-        $expression = DirectivesRepository::parseMultipleArgs($expression);
-        
-        $col = DirectivesRepository::stripQuotes($expression->get(0));
-        $label = DirectivesRepository::stripQuotes($expression->get(1));
-        $name = DirectivesRepository::stripQuotes($expression->get(2));
-        $value = DirectivesRepository::stripQuotes($expression->get(3));
-        $attributes = $expression->get(4);
         $errors = '$errors';
-
-        return "<?php echo Form::inputGroup('email', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>"; 
+        return "{!! Form::inputGroup('email', {$expression}, {$errors}) !!}";
     },
 
     /*
@@ -425,7 +458,7 @@ return [
     'tel' => function ($expression)
     {
         $expression = DirectivesRepository::parseMultipleArgs($expression);
-        
+
         $col = DirectivesRepository::stripQuotes($expression->get(0));
         $label = DirectivesRepository::stripQuotes($expression->get(1));
         $name = DirectivesRepository::stripQuotes($expression->get(2));
@@ -433,7 +466,7 @@ return [
         $attributes = $expression->get(4);
         $errors = '$errors';
 
-        return "<?php echo Form::inputGroup('tel', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>"; 
+        return "<?php echo Form::inputGroup('tel', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>";
     },
 
     /*
@@ -445,7 +478,7 @@ return [
     'number' => function ($expression)
     {
         $expression = DirectivesRepository::parseMultipleArgs($expression);
-        
+
         $col = DirectivesRepository::stripQuotes($expression->get(0));
         $label = DirectivesRepository::stripQuotes($expression->get(1));
         $name = DirectivesRepository::stripQuotes($expression->get(2));
@@ -453,7 +486,7 @@ return [
         $attributes = $expression->get(4);
         $errors = '$errors';
 
-        return "<?php echo Form::inputGroup('number', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>"; 
+        return "<?php echo Form::inputGroup('number', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>";
     },
 
     /*
@@ -465,7 +498,7 @@ return [
     'date' => function ($expression)
     {
         $expression = DirectivesRepository::parseMultipleArgs($expression);
-        
+
         $col = DirectivesRepository::stripQuotes($expression->get(0));
         $label = DirectivesRepository::stripQuotes($expression->get(1));
         $name = DirectivesRepository::stripQuotes($expression->get(2));
@@ -473,7 +506,7 @@ return [
         $attributes = $expression->get(4);
         $errors = '$errors';
 
-        return "<?php echo Form::inputGroup('date', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>"; 
+        return "<?php echo Form::inputGroup('date', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>";
     },
 
     /*
@@ -485,7 +518,7 @@ return [
     'datetime' => function ($expression)
     {
         $expression = DirectivesRepository::parseMultipleArgs($expression);
-        
+
         $col = DirectivesRepository::stripQuotes($expression->get(0));
         $label = DirectivesRepository::stripQuotes($expression->get(1));
         $name = DirectivesRepository::stripQuotes($expression->get(2));
@@ -493,7 +526,7 @@ return [
         $attributes = $expression->get(4);
         $errors = '$errors';
 
-        return "<?php echo Form::inputGroup('datetime', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>"; 
+        return "<?php echo Form::inputGroup('datetime', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>";
     },
 
     /*
@@ -505,7 +538,7 @@ return [
     'time' => function ($expression)
     {
         $expression = DirectivesRepository::parseMultipleArgs($expression);
-        
+
         $col = DirectivesRepository::stripQuotes($expression->get(0));
         $label = DirectivesRepository::stripQuotes($expression->get(1));
         $name = DirectivesRepository::stripQuotes($expression->get(2));
@@ -513,7 +546,7 @@ return [
         $attributes = $expression->get(4);
         $errors = '$errors';
 
-        return "<?php echo Form::inputGroup('time', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>"; 
+        return "<?php echo Form::inputGroup('time', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>";
     },
 
     /*
@@ -525,7 +558,7 @@ return [
     'url' => function ($expression)
     {
         $expression = DirectivesRepository::parseMultipleArgs($expression);
-        
+
         $col = DirectivesRepository::stripQuotes($expression->get(0));
         $label = DirectivesRepository::stripQuotes($expression->get(1));
         $name = DirectivesRepository::stripQuotes($expression->get(2));
@@ -533,7 +566,7 @@ return [
         $attributes = $expression->get(4);
         $errors = '$errors';
 
-        return "<?php echo Form::inputGroup('url', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>"; 
+        return "<?php echo Form::inputGroup('url', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>";
     },
 
     /*
@@ -545,7 +578,7 @@ return [
     'week' => function ($expression)
     {
         $expression = DirectivesRepository::parseMultipleArgs($expression);
-        
+
         $col = DirectivesRepository::stripQuotes($expression->get(0));
         $label = DirectivesRepository::stripQuotes($expression->get(1));
         $name = DirectivesRepository::stripQuotes($expression->get(2));
@@ -553,7 +586,7 @@ return [
         $attributes = $expression->get(4);
         $errors = '$errors';
 
-        return "<?php echo Form::inputGroup('week', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>"; 
+        return "<?php echo Form::inputGroup('week', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>";
     },
 
     /*
@@ -565,7 +598,7 @@ return [
     'file' => function ($expression)
     {
         $expression = DirectivesRepository::parseMultipleArgs($expression);
-        
+
         $col = DirectivesRepository::stripQuotes($expression->get(0));
         $label = DirectivesRepository::stripQuotes($expression->get(1));
         $name = DirectivesRepository::stripQuotes($expression->get(2));
@@ -573,7 +606,7 @@ return [
         $attributes = $expression->get(4);
         $errors = '$errors';
 
-        return "<?php echo Form::inputGroup('file', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>"; 
+        return "<?php echo Form::inputGroup('file', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>";
     },
 
 ];
