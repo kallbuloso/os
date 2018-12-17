@@ -139,7 +139,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach ($customers as $customer)
+                                        @foreach($customers as $customer)
                                             <tr>
                                                 {{-- <td class="text-center">{{ $customer->id }}</td> --}}
                                                 <td>{{ $customer->name }}</td>

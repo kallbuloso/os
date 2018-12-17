@@ -274,10 +274,10 @@ return [
     },
 
     /*
-     |---------------------------------------------------------------------
-     | @data
-     |---------------------------------------------------------------------
-     */
+    |---------------------------------------------------------------------
+    | @data
+    |---------------------------------------------------------------------
+    */
 
     'data' => function ($expression) {
         $output = 'collect((array) '.$expression.')
@@ -363,7 +363,7 @@ return [
     | @formatdate('2018-05-28','d/m/Y')
     |-----------------------------------------------------------------------
     */
-    'formatdate' => function ($expression)
+    'formatDate' => function ($expression)
     {
         list($date, $format) = explode(',', $expression);
         return '<?php echo date_format(date_create($date), $format); ?>';
@@ -375,7 +375,7 @@ return [
     | @formopen([Attributes])
     |-----------------------------------------------------------------------
     */
-    'formopen' => function ($expression)
+    'formOpen' => function ($expression)
     {
         return '{!! Form::open(['.$expression.']) !!}';
     },
@@ -386,7 +386,7 @@ return [
     | @formopen([Attributes])
     |-----------------------------------------------------------------------
     */
-    'formclose' => function ()
+    'formClose' => function ()
     {
         return '{!! Form::close() !!}';
     },
@@ -404,7 +404,25 @@ return [
     'select' => function ($expression)
     {
         $errors = '$errors';
-        return "{!! Form::selectGroup('select', {$expression}, {$errors}) !!}";
+        return "{!! Form::inputGroup('select', {$expression}, {$errors}) !!}";
+    },
+
+    'selectMonth' => function ($expression) 
+    {
+        $errors = '$errors';
+        return "{!! Form::inputGroup('selectMonth', {$expression}, {$errors}) !!}";
+    },
+
+    'selectRange' => function ($expression)
+    {
+        $errors = '$errors';
+        return "{!! Form::inputGroup('selectRange', {$expression}, {$errors}) !!}";
+    },
+
+    'selectYear' => function ($expression)
+    {
+        $errors = '$errors';
+        return "{!! Form::inputGroup('selectYear', {$expression}, {$errors}) !!}";
     },
 
     /** k.text
@@ -431,7 +449,7 @@ return [
      *  'attributes' => []
      * ])
      */
-    'textarea' => function ($expression)
+    'textArea' => function ($expression)
     {
         $errors = '$errors';
         return "{!! Form::inputGroup('textarea', {$expression}, {$errors}) !!}";
@@ -457,16 +475,8 @@ return [
     */
     'tel' => function ($expression)
     {
-        $expression = DirectivesRepository::parseMultipleArgs($expression);
-
-        $col = DirectivesRepository::stripQuotes($expression->get(0));
-        $label = DirectivesRepository::stripQuotes($expression->get(1));
-        $name = DirectivesRepository::stripQuotes($expression->get(2));
-        $value = DirectivesRepository::stripQuotes($expression->get(3));
-        $attributes = $expression->get(4);
         $errors = '$errors';
-
-        return "<?php echo Form::inputGroup('tel', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>";
+        return "{!! Form::inputGroup('tel', {$expression}, {$errors}) !!}";
     },
 
     /*
@@ -477,16 +487,8 @@ return [
     */
     'number' => function ($expression)
     {
-        $expression = DirectivesRepository::parseMultipleArgs($expression);
-
-        $col = DirectivesRepository::stripQuotes($expression->get(0));
-        $label = DirectivesRepository::stripQuotes($expression->get(1));
-        $name = DirectivesRepository::stripQuotes($expression->get(2));
-        $value = DirectivesRepository::stripQuotes($expression->get(3));
-        $attributes = $expression->get(4);
         $errors = '$errors';
-
-        return "<?php echo Form::inputGroup('number', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>";
+        return "{!! Form::inputGroup('number', {$expression}, {$errors}) !!}";
     },
 
     /*
@@ -495,18 +497,10 @@ return [
     | @date('4', 'Título do date', 'date', , ['placeholder' => 'Seu date'])
     |-----------------------------------------------------------------------
     */
-    'date' => function ($expression)
+    'dateTimePicker' => function ($expression)
     {
-        $expression = DirectivesRepository::parseMultipleArgs($expression);
-
-        $col = DirectivesRepository::stripQuotes($expression->get(0));
-        $label = DirectivesRepository::stripQuotes($expression->get(1));
-        $name = DirectivesRepository::stripQuotes($expression->get(2));
-        $value = DirectivesRepository::stripQuotes($expression->get(3));
-        $attributes = $expression->get(4);
         $errors = '$errors';
-
-        return "<?php echo Form::inputGroup('date', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>";
+        return "{!! Form::inputGroup('date', {$expression}, {$errors}) !!}";
     },
 
     /*
@@ -517,16 +511,21 @@ return [
     */
     'datetime' => function ($expression)
     {
-        $expression = DirectivesRepository::parseMultipleArgs($expression);
-
-        $col = DirectivesRepository::stripQuotes($expression->get(0));
-        $label = DirectivesRepository::stripQuotes($expression->get(1));
-        $name = DirectivesRepository::stripQuotes($expression->get(2));
-        $value = DirectivesRepository::stripQuotes($expression->get(3));
-        $attributes = $expression->get(4);
         $errors = '$errors';
+        return "{!! Form::inputGroup('datetime', {$expression}, {$errors}) !!}";
+    },
+    // TODO: Resolver DateTime
 
-        return "<?php echo Form::inputGroup('datetime', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>";
+    /*
+    |-----------------------------------------------------------------------
+    | datetime-local
+    | @datetime('4', 'Título do datetime', 'datetime', , ['placeholder' => 'Seu datetime'])
+    |-----------------------------------------------------------------------
+    */
+    'datetimeLocal' => function ($expression)
+    {
+        $errors = '$errors';
+        return "{!! Form::inputGroup('datetime-local', {$expression}, {$errors}) !!}";
     },
 
     /*
@@ -537,16 +536,8 @@ return [
     */
     'time' => function ($expression)
     {
-        $expression = DirectivesRepository::parseMultipleArgs($expression);
-
-        $col = DirectivesRepository::stripQuotes($expression->get(0));
-        $label = DirectivesRepository::stripQuotes($expression->get(1));
-        $name = DirectivesRepository::stripQuotes($expression->get(2));
-        $value = DirectivesRepository::stripQuotes($expression->get(3));
-        $attributes = $expression->get(4);
         $errors = '$errors';
-
-        return "<?php echo Form::inputGroup('time', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>";
+        return "{!! Form::inputGroup('time', {$expression}, {$errors}) !!}";
     },
 
     /*
@@ -557,16 +548,8 @@ return [
     */
     'url' => function ($expression)
     {
-        $expression = DirectivesRepository::parseMultipleArgs($expression);
-
-        $col = DirectivesRepository::stripQuotes($expression->get(0));
-        $label = DirectivesRepository::stripQuotes($expression->get(1));
-        $name = DirectivesRepository::stripQuotes($expression->get(2));
-        $value = DirectivesRepository::stripQuotes($expression->get(3));
-        $attributes = $expression->get(4);
         $errors = '$errors';
-
-        return "<?php echo Form::inputGroup('url', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>";
+        return "{!! Form::inputGroup('url', {$expression}, {$errors}) !!}";
     },
 
     /*
@@ -577,16 +560,8 @@ return [
     */
     'week' => function ($expression)
     {
-        $expression = DirectivesRepository::parseMultipleArgs($expression);
-
-        $col = DirectivesRepository::stripQuotes($expression->get(0));
-        $label = DirectivesRepository::stripQuotes($expression->get(1));
-        $name = DirectivesRepository::stripQuotes($expression->get(2));
-        $value = DirectivesRepository::stripQuotes($expression->get(3));
-        $attributes = $expression->get(4);
         $errors = '$errors';
-
-        return "<?php echo Form::inputGroup('week', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>";
+        return "{!! Form::inputGroup('week', {$expression}, {$errors}) !!}";
     },
 
     /*
@@ -597,16 +572,8 @@ return [
     */
     'file' => function ($expression)
     {
-        $expression = DirectivesRepository::parseMultipleArgs($expression);
-
-        $col = DirectivesRepository::stripQuotes($expression->get(0));
-        $label = DirectivesRepository::stripQuotes($expression->get(1));
-        $name = DirectivesRepository::stripQuotes($expression->get(2));
-        $value = null;
-        $attributes = $expression->get(4);
         $errors = '$errors';
-
-        return "<?php echo Form::inputGroup('file', '{$col}', '{$label}', '{$name}', '{$value}', {$attributes}, {$errors}); ?>";
+        return "{!! Form::inputGroup('file', {$expression}, {$errors}) !!}";
     },
 
 ];
