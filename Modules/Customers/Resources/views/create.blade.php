@@ -36,10 +36,15 @@
                                                     'attributes' => ['placeholder' => 'placeholder-date', 'require' => 'require']])
                                         </div>
                                         <div class="form-group">
-                                            @selectRange(['col' =>'2', 'label' => 'Dia', 'name' => 'dia', 'begin' => '31', 'end' => '1', 'selected' => null])
-                                            @selectMonth(['col' =>'4', 'label' => 'Mes', 'name' => 'month', 'selected' => '12', 'attributes' => []])
-                                            @selectRange(['col' => '4', 'label' => 'Ano', 'name' => 'year',  'begin' => '2018', 'end' => '1950', 'selected' => null, 'attributes' => ['require' => 'require']])
-                                            @selectYear(['col' => '2', 'label' => 'Ano', 'name' => 'year',  'begin' => '2018', 'end' => '2000', 'selected' => null, 'attributes' => ['require' => 'require']])
+                                                <div class="col-xs-6">
+                                                        <label class="css-input css-checkbox css-checkbox-default">
+                                                            {{--  <input type="checkbox" checked><span></span> Default  --}}
+                                                            {!! Form::checkbox('$name', '$value', true, ['']) !!}
+                                                        </label>
+                                                    </div>
+            
+                                                {{--  {!! Form::radio('$name', '$value', false, ['class' => 'form-control']) !!}  --}}
+                                                
                                         </div>
                                         {{--  {!! Form::selectYear() !!}  --}}
                                     @formClose()

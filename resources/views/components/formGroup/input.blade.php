@@ -9,6 +9,35 @@
                     array_get($params, 'optionsAttributes') ? array_merge(['class' => 'form-control'], array_get($params, 'optionsAttributes')) : ['class' => 'form-control'] )
                 }}
             @break
+        @case('checkbox')
+                {{ Form::$type(
+                    array_get($params, 'name'),
+                    array_get($params, 'value') ? array_get($params, 'value') : '1',
+                    array_get($params, 'checked') ? array_get($params, 'checked') : null,
+                    array_get($params, 'attributes') ? array_merge(['class' => 'form-control'], array_get($params, 'attributes')) : ['class' => 'form-control'] )
+                }}
+            @break
+        @case('radio')
+                {{ Form::$type(
+                    array_get($params, 'name'),
+                    array_get($params, 'value') ? array_get($params, 'value') : null,
+                    array_get($params, 'checked') ? array_get($params, 'checked') : null,
+                    array_get($params, 'attributes') ? array_merge(['class' => 'form-control'], array_get($params, 'attributes')) : ['class' => 'form-control'] )
+                }}
+            @break
+        @case('reset')
+                {{ Form::$type(
+                    array_get($params, 'value') ? array_get($params, 'value') : null,
+                    array_get($params, 'attributes') ? array_merge(['class' => 'form-control'], array_get($params, 'attributes')) : ['class' => 'form-control'] )
+                }}
+            @break
+        @case('image')
+                {{ Form::$type(
+                    array_get($params, 'url'),
+                    array_get($params, 'name'),
+                    array_get($params, 'attributes') ? array_merge(['class' => 'form-control'], array_get($params, 'attributes')) : ['class' => 'form-control'] )
+                }}
+            @break
         @case('selectMonth') 
                 {!! Form::$type(
                     array_get($params, 'name'), 

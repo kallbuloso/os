@@ -425,19 +425,28 @@ return [
         return "{!! Form::inputGroup('selectYear', {$expression}, {$errors}) !!}";
     },
 
-    /** k.text
-     * @text([
-     *  'col' => '',
-     *  'label' => '',
-     *  'name' => '',
-     *  'value' => '',
-     *  'attributes' => []
-     * ])
-     */
+    'search' => function ($expression)
+    {
+        $errors = '$errors';
+        return "{!! Form::inputGroup('search', {$expression}, {$errors}) !!}";
+    },
+
+    'range' => function ($expression)
+    {
+        $errors = '$errors';
+        return "{!! Form::inputGroup('range', {$expression}, {$errors}) !!}";
+    },
+
     'text' => function ($expression)
     {
         $errors = '$errors';
         return "{!! Form::inputGroup('text', {$expression}, {$errors}) !!}";
+    },
+
+    'password' => function ($expression)
+    {
+        $errors = '$errors';
+        return "{!! Form::inputGroup('password', {$expression}, {$errors}) !!}";
     },
 
     /** k.textArea
@@ -574,6 +583,54 @@ return [
     {
         $errors = '$errors';
         return "{!! Form::inputGroup('file', {$expression}, {$errors}) !!}";
+    },
+
+    'checkbox' => function ($expression)
+    {
+        $errors = '$errors';
+        return "{!! Form::inputGroup('checkbox', {$expression}, {$errors}) !!}";
+    },
+
+    'radio' => function ($expression)
+    {
+        $errors = '$errors';
+        return "{!! Form::inputGroup('radio', {$expression}, {$errors}) !!}";
+    },
+
+    'reset' => function ($expression)
+    {
+        $errors = '$errors';
+        return "{!! Form::inputGroup('reset', {$expression}, {$errors}) !!}";
+    },
+
+    'image' => function ($expression)
+    {
+        $errors = '$errors';
+        return "{!! Form::inputGroup('image', {$expression}, {$errors}) !!}";
+    },
+    
+    'hidden' => function ($expression)
+    {
+        $errors = '$errors';
+        return "{!! Form::inputGroup('hidden', {$expression}, {$errors}) !!}";
+    },
+    
+    'color' => function ($expression)
+    {
+        $errors = '$errors';
+        return "{!! Form::inputGroup('color', {$expression}, {$errors}) !!}";
+    },
+
+    'submit' => function ($expression)
+    {
+        $errors = '$errors';
+        return "{!! Form::inputGroup('submit', {$expression}, {$errors}) !!}";
+    },
+
+    'button' => function ($expression)
+    {
+        $errors = '$errors';
+        return "{!! Form::inputGroup('button', {$expression}, {$errors}) !!}";
     },
 
 ];
