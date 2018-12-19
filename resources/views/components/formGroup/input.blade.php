@@ -25,12 +25,12 @@
                     array_get($params, 'attributes') ? array_merge(['class' => 'form-control'], array_get($params, 'attributes')) : ['class' => 'form-control'] )
                 }}
             @break
-        @case('reset')
+        {{--  @case('reset')
                 {{ Form::$type(
                     array_get($params, 'value') ? array_get($params, 'value') : null,
                     array_get($params, 'attributes') ? array_merge(['class' => 'form-control'], array_get($params, 'attributes')) : ['class' => 'form-control'] )
                 }}
-            @break
+            @break  --}}
         @case('image')
                 {{ Form::$type(
                     array_get($params, 'url'),

@@ -588,25 +588,25 @@ return [
     'checkbox' => function ($expression)
     {
         $errors = '$errors';
-        return "{!! Form::inputGroup('checkbox', {$expression}, {$errors}) !!}";
+        return "{!! Form::elementGroup('checkbox', {$expression}, {$errors}) !!}";
     },
 
     'radio' => function ($expression)
     {
         $errors = '$errors';
-        return "{!! Form::inputGroup('radio', {$expression}, {$errors}) !!}";
+        return "{!! Form::elementGroup('radio', {$expression}, {$errors}) !!}";
     },
 
     'reset' => function ($expression)
     {
         $errors = '$errors';
-        return "{!! Form::inputGroup('reset', {$expression}, {$errors}) !!}";
+        return "{!! Form::elementGroup('reset', {$expression}, {$errors}) !!}";
     },
 
     'image' => function ($expression)
     {
         $errors = '$errors';
-        return "{!! Form::inputGroup('image', {$expression}, {$errors}) !!}";
+        return "{!! Form::elementGroup('image', {$expression}, {$errors}) !!}";
     },
     
     'hidden' => function ($expression)
@@ -618,19 +618,19 @@ return [
     'color' => function ($expression)
     {
         $errors = '$errors';
-        return "{!! Form::inputGroup('color', {$expression}, {$errors}) !!}";
+        return "{!! Form::elementGroup('color', {$expression}, {$errors}) !!}";
     },
 
     'submit' => function ($expression)
     {
         $errors = '$errors';
-        return "{!! Form::inputGroup('submit', {$expression}, {$errors}) !!}";
+        return "{!! Form::elementGroup('submit', {$expression}, {$errors}) !!}";
     },
 
     'button' => function ($expression)
     {
         $errors = '$errors';
-        return "{!! Form::inputGroup('button', {$expression}, {$errors}) !!}";
+        return "{!! Form::elementGroup('button', {$expression}, {$errors}) !!}";
     },
 
 ];

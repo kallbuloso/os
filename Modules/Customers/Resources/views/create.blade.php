@@ -35,18 +35,24 @@
                                             @datetime(['col' => '6', 'label' => 'date', 'name' => 'date','value' => null,
                                                     'attributes' => ['placeholder' => 'placeholder-date', 'require' => 'require']])
                                         </div>
-                                        <div class="form-group">
-                                                <div class="col-xs-6">
-                                                        <label class="css-input css-checkbox css-checkbox-default">
-                                                            {{--  <input type="checkbox" checked><span></span> Default  --}}
-                                                            {!! Form::checkbox('$name', '$value', true, ['']) !!}
-                                                        </label>
-                                                    </div>
-            
-                                                {{--  {!! Form::radio('$name', '$value', false, ['class' => 'form-control']) !!}  --}}
-                                                
+                                        <div class="form-group">  
+                                            <h2>Checkbox</h2>                                        
+                                            @checkbox(['col'=>'2','name'=>'checkbox','value'=>'Content-Checkbox','checked'=>true,'css'=>'primary','require'=>'require'])
                                         </div>
-                                        {{--  {!! Form::selectYear() !!}  --}}
+                                        <div class="form-group">
+                                            <h2>Radio</h2>
+                                            @radio(['col'=>'2','name'=>'radio','value'=>'Content-radio','checked'=>true,'css'=>'primary','require'=>'require'])
+                                            @radio(['col'=>'2','name'=>'radio','value'=>'Content-radio','checked'=>false,'css'=>'primary','require'=>'require'])
+                                        </div>
+                                        <div class="form-group col-xs-12">
+                                                @button(['value'=>'<i class="fa fa-home"></i>','attributes'=>['class'=>'btn btn-default']])
+                                                @button(['value'=>'Primary','attributes'=>['class'=>'btn btn-primary']])
+                                                @button(['value'=>'Info','attributes'=>['class'=>'btn btn-info']])
+                                                @button(['value'=>'Success','attributes'=>['class'=>'btn btn-success']])
+                                                @button(['value'=>'Warning','attributes'=>['class'=>'btn btn-warning']])
+                                                @button(['value'=>'Danger','attributes'=>['class'=>'btn btn-danger']])
+                                            {{--  </div>  --}}
+                                        </div>
                                     @formClose()
                                 </div>
                             </div>
