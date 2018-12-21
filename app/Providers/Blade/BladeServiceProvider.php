@@ -14,6 +14,7 @@ class BladeServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerDirectives();
+        $this->registerCustonsDirectives();
     }
 
     /**
@@ -24,6 +25,17 @@ class BladeServiceProvider extends ServiceProvider
     public function registerDirectives()
     {
         $directives = require __DIR__.'/BladeDirectives.php';
+        DirectivesRepository::register($directives);
+    }
+
+    /**
+     * Register Custons Directives
+     * 
+     * @return void
+     */
+    public function registerCustonsDirectives()
+    {
+        $directives = require __DIR__.'/BladeCustonsDirectives.php';
         DirectivesRepository::register($directives);
     }
 }

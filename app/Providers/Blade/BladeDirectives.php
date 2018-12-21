@@ -4,7 +4,7 @@ use App\Providers\Blade\DirectivesRepository;
 use App\Providers\FormGroupServiceProvider;
 use Illuminate\Support\ServiceProvider;
 use Psy\Util\Str;
-
+/** https://github.com/googleshokry/laravel-blade-directives */
 return [
 
     /*
@@ -158,7 +158,7 @@ return [
 
     'inline' => function ($expression) {
         $include = "//  {$expression}\n".
-                   "<?php include public_path({$expression}) ?>\n";
+            "<?php include public_path({$expression}) ?>\n";
 
         if (ends_with($expression, ".html'")) {
             return $include;

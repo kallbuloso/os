@@ -57,25 +57,13 @@ class DirectivesRepository
     }
 
     /**
-     * Path view Form.
-     *
+     * Strip single spaces.
+     * 
      * @param  string $expression
      * @return string
      */
-    public static function viewPathFormGroup($expression)
+    public static function stripSpaces($expression)
     {
-        $view = 'components.formGroup.';
-        return $view . str_replace("'", '', $expression);
-    }
-
-    /**
-     * Path view Form.
-     *
-     * @param  string $expression
-     * @return string
-     */
-    public static function BladeTruncate($expression)
-    {
-        return Form::component($expression,'components.formGroup.'.$expression, ['label', 'type', 'name', 'value' => null, 'attributes' => [], 'errors']);
+    	return str_replace(' ', '', $expression);
     }
 }

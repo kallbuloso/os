@@ -26,7 +26,10 @@
                     <div class="side-content">
                         <ul class="nav-main">
                             <li>
-                                <a class="{{ request()->is('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}"><i class="si si-speedometer"></i><span class="sidebar-mini-hide">Dashboard</span></a>
+                                <a class="{{ request()->is('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">
+                                    <i class="si si-speedometer"></i>
+                                    <span class="sidebar-mini-hide">Dashboard</span>
+                                </a>
                             </li>
                             <li class="nav-main-heading"><span class="sidebar-mini-hide">Ordens de Serviços</span></li>
                             <li class="nav-main-heading"><span class="sidebar-mini-hide">Cadastros</span></li>

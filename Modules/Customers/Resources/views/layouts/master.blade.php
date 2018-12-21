@@ -43,35 +43,29 @@
                         <div class="col-lg-12">
                             <!-- Bootstrap Register -->
                             <div class="block block-themed">
-                                <div class="block-header bg-primary">
-                                    <ul class="block-options">
-                                        <li>
-                                            <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
-                                        </li>
-                                        <li>
-                                            <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
-                                        </li>
-                                    </ul>
-                                    <h3 class="block-title">Bootstrap</h3>
-                                </div>
-                                <div class="block-content">
-                                    <form class="form-horizontal push-5-t" action="base_forms_premade.html" method="post" onsubmit="return false;">
-                                        {{ Form::textGroup('Título do Post *' , 'text', 'email', null, ['placeholder' => 'Título do post'], $errors) }}
-
-                                        <div class="form-group">
-                                            {{ Form::textForm('4', 'Título do Post 2' , 'email','firstname', null, ['placeholder' => 'Título do post'], $errors) }}
-                                            {{ Form::textForm('4', 'Título do Post 2' , 'email','firstname', null, ['placeholder' => 'Título do post'], $errors) }}
-                                            {{ Form::textForm('4', 'Título do Post 2' , 'email','firstname', null, ['placeholder' => 'Título do post'], $errors) }}
+                                <form class="form-horizontal push-5-t" action="base_forms_premade.html" method="post" onsubmit="return false;">
+                                    <div class="block-content">
+                                        <div class="block-header bg-primary">
+                                            <ul class="block-options">
+                                                <li>
+                                                    <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                                                </li>
+                                                <li>
+                                                    <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                                                </li>
+                                            </ul>
+                                            <h3 class="block-title">Bootstrap</h3>
                                         </div>
-
-                                        <div class="form-group">
-                                            <label class="col-xs-12" for="register1-password">Password</label>
-                                            <div class="col-xs-12">
-                                                <input class="form-control" type="password" id="register1-password" name="register1-password" placeholder="Enter your password..">
+                                        <div class="row">                                            
+                                            <div class="form-group">
+                                                <label class="col-xs-12" for="register1-password">Password</label>
+                                                <div class="col-xs-12">
+                                                    <input class="form-control" type="password" id="register1-password" name="register1-password" placeholder="Enter your password..">
+                                                </div>
                                             </div>
                                         </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                </form>
                             </div>
                             <!-- END Bootstrap Register -->
                         </div>
