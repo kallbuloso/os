@@ -11,14 +11,11 @@
 |
 */
 
-Route::group([
-    'middleware' => ['web', 'auth'], 
-    'prefix' => 'customers'], 
-    function() 
+Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'customers'], function() 
     {
         Route::get('/', 'CustomersController@index')->name('customers');
         Route::get('/create', 'CustomersController@create')->name('createCustomer');
-        Route::get('/create/save', 'CustomersController@update')->name('customerSave');
+        Route::get('/create/save', 'CustomersController@store')->name('customerSave');
     }
 );
 /* old

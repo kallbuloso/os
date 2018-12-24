@@ -80,8 +80,47 @@ class CustomersController extends Controller
      * @param  Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Customers $customers)
     {
+        $request->validate([
+            'tipe'=>'required',
+            'status'=>'required',
+            'name'=>'required',
+            'nickname'=>'',
+            'contact'=>'',
+            'gender'=>'required',
+            'birtday_at'=>'',
+            'cpf_cnpj'=>'',
+            'rg_insc_est'=>'',
+            'insc_mun'=>'',
+            'telephone'=>'',
+            'cell_phone'=>'',
+            'whatsapp'=>'',
+            'email'=>'',
+            'newsletter'=>'',
+            'email_nfe'=>'',
+            'site'=>'',
+            'group'=>'required',
+            'limit_purc'=>'',
+            'note_purchase'=>'',
+            'note'=>'',
+        ]);
+        // Insere um novo cliente, de acordo com os dados informados pelo usuário
+        $insert = $customers->create($request->all());
+
+        // Verifica se inseriu com sucesso
+        // Redireciona para a listagem das categorias
+        // Passa uma session flash success (sessão temporária)
+        if ($insert)
+            return redirect()
+                        ->route('createCustomer')
+                        ->with('success', 'Customer inserido com sucesso!');
+    
+        // Redireciona de volta com uma mensagem de erro
+        return redirect()
+                    ->back()
+                    ->with('error', 'Falha ao inserir');
+
     }
 
     /**
